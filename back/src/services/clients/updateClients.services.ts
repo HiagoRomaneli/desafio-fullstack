@@ -5,8 +5,8 @@ import { IClientReturn } from "../../interfaces/clients.interfaces";
 import { ClientSchemaWithoutPassword } from "../../schemas/clients.schemas";
 
 export const updateClientsService = async (
-  clientData: any,
-  clientId: number
+  clientId: number,
+  clientData: any
 ): Promise<IClientReturn> => {
   const clientRepository: Repository<Client> =
     AppDataSource.getRepository(Client);

@@ -7,7 +7,7 @@ import {
   IContact,
   IContactResponse,
 } from "../../interfaces/contacts.interfaces";
-import { CreateContactSchema } from "../../schemas/contacts.schema";
+import { CreateContactSchemaReturn } from "../../schemas/contacts.schema";
 
 export const createContactsService = async (
   clientId: number,
@@ -35,7 +35,7 @@ export const createContactsService = async (
 
   await contactRepository.save(contact);
 
-  const newContact = CreateContactSchema.parse(contact);
+  const newContact = CreateContactSchemaReturn.parse(contact);
 
   return newContact;
 };

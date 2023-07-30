@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const CreateClientSchema = z.object({
+export const CreateClientSchemaReturn = z.object({
   name: z.string().min(3).max(45),
   email: z.string().email().max(45),
   phone: z.string(),
@@ -8,9 +8,9 @@ export const CreateClientSchema = z.object({
   password: z.string().min(4).max(120),
 });
 
-export const CreateClientSchemaReturn = CreateClientSchema.extend({
+export const CreateClientSchemaRequest = CreateClientSchemaReturn.extend({
   id: z.number(),
-  createdAt: z.string(),
+  createdAt: z.date(),
 });
 
 export const ClientSchemaWithoutPassword = CreateClientSchemaReturn.omit({
@@ -19,18 +19,18 @@ export const ClientSchemaWithoutPassword = CreateClientSchemaReturn.omit({
 
 export const AllClientsReturn = z.array(ClientSchemaWithoutPassword);
 
-export const UpdateClientSchema = CreateClientSchema.omit({
+export const UpdateClientSchema = CreateClientSchemaReturn.omit({
   admin: true,
 }).partial();
 
-export const ListClientByIdSchema = CreateClientSchema.extend({
+export const ListClientByIdSchema = CreateClientSchemaReturn.extend({
   contacts: z.array(
     z.object({
-      id: z.string(),
+      id: z.number(),
       name: z.string(),
       email: z.string().email(),
       phone: z.string(),
-      created_at: z.date(),
+      createdAt: z.date(),
     })
   ),
 });

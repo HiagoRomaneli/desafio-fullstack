@@ -45,7 +45,7 @@ export const updateContactController = async (
   const contactData = request.body;
   const contactId = parseInt(request.params.id);
 
-  const updateContact = await updateContactService(contactData, contactId);
+  const updateContact = await updateContactService(contactId, contactData);
 
   return response.json(updateContact);
 };

@@ -3,7 +3,7 @@ import { AppDataSource } from "../../data-source";
 import { Contact } from "../../entities/contacts.entity";
 import { AppError } from "../../errors";
 import { IContactUpdate } from "../../interfaces/contacts.interfaces";
-import { CreateContactSchema } from "../../schemas/contacts.schema";
+import { CreateContactSchemaReturn } from "../../schemas/contacts.schema";
 
 export const updateContactService = async (
   contactId: number,
@@ -22,5 +22,5 @@ export const updateContactService = async (
 
   const updatedContact = await contactRepository.findOneBy({ id: contactId });
 
-  return CreateContactSchema.parse(updatedContact);
+  return CreateContactSchemaReturn.parse(updatedContact);
 };

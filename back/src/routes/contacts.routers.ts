@@ -9,14 +9,14 @@ import {
 import { ensureContactExistsMiddleware } from "../middlewares/ensureContactExists.middleware";
 import { ensureDataIsValidMiddleware } from "../middlewares/ensureDataIsValid.middleware";
 import { ensureTokenIsValidMiddleware } from "../middlewares/ensureTokenIsValid.middleware";
-import { CreateContactSchema } from "../schemas/contacts.schema";
+import { ContactSchemaRequest } from "../schemas/contacts.schema";
 
 export const contactRoutes = Router();
 
 contactRoutes.post(
-  "",
+  "/:id",
   ensureTokenIsValidMiddleware,
-  ensureDataIsValidMiddleware(CreateContactSchema),
+  ensureDataIsValidMiddleware(ContactSchemaRequest),
   createContactController
 );
 contactRoutes.get("", ensureTokenIsValidMiddleware, listContactController);

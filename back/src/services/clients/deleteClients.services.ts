@@ -6,11 +6,11 @@ export const deleteClientsService = async (clientId: number): Promise<void> => {
   const clientRepository: Repository<Client> =
     AppDataSource.getRepository(Client);
 
-  const client = await clientRepository.findOne({
+  const findClient = await clientRepository.findOne({
     where: {
       id: clientId,
     },
   });
 
-  await clientRepository.softRemove(client!);
+  await clientRepository.remove(findClient!);
 };

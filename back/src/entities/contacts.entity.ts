@@ -22,7 +22,7 @@ export class Contact {
   phone: string;
 
   @CreateDateColumn()
-  created_at: Date;
+  createdAt: Date;
 
   @ManyToOne(() => Client, (client) => client.contacts)
   client: Client;

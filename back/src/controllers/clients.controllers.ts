@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { createClientsServices } from "../services/clients/createClients.services";
 import { deleteClientsService } from "../services/clients/deleteClients.services";
-import listClientByIdService from "../services/clients/listClientById.services";
+import { listClientByIdService } from "../services/clients/listClientById.services";
 import { listClientsService } from "../services/clients/listClients.services";
 import { updateClientsService } from "../services/clients/updateClients.services";
 
@@ -43,7 +43,7 @@ export const updateClientsController = async (
   const clientData = request.body;
   const clientId = parseInt(request.params.id);
 
-  const updateClient = await updateClientsService(clientData, clientId);
+  const updateClient = await updateClientsService(clientId, clientData);
 
   return response.json(updateClient);
 };
