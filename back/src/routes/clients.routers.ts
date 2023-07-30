@@ -9,13 +9,13 @@ import {
 import { ensureClientExistsMiddleware } from "../middlewares/ensureClientExists.middleware copy";
 import { ensureDataIsValidMiddleware } from "../middlewares/ensureDataIsValid.middleware";
 import { ensureTokenIsValidMiddleware } from "../middlewares/ensureTokenIsValid.middleware";
-import { CreateClientSchema } from "../schemas/clients.schemas";
+import { CreateClientSchemaReturn } from "../schemas/clients.schemas";
 
 export const clientsRoutes = Router();
 
 clientsRoutes.post(
   "",
-  ensureDataIsValidMiddleware(CreateClientSchema),
+  ensureDataIsValidMiddleware(CreateClientSchemaReturn),
   createClientsController
 );
 clientsRoutes.get("", ensureTokenIsValidMiddleware, listClientsController);

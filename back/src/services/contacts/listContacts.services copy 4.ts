@@ -3,7 +3,7 @@ import { z } from "zod";
 import { AppDataSource } from "../../data-source";
 import { Contact } from "../../entities/contacts.entity";
 import { IContactResponse } from "../../interfaces/contacts.interfaces";
-import { CreateContactSchema } from "../../schemas/contacts.schema";
+import { CreateContactSchemaReturn } from "../../schemas/contacts.schema";
 
 export const listAllContactsService = async (): Promise<IContactResponse[]> => {
   const clientsRepository: Repository<Contact> =
@@ -13,5 +13,5 @@ export const listAllContactsService = async (): Promise<IContactResponse[]> => {
     relations: { client: true },
   });
 
-  return z.array(CreateContactSchema).parse(findClients);
+  return z.array(CreateContactSchemaReturn).parse(findClients);
 };

@@ -1,21 +1,21 @@
 import { z } from "zod";
 import { ClientSchemaWithoutPassword } from "./clients.schemas";
 
-export const CreateContactSchema = z.object({
-  id: z.string(),
+export const CreateContactSchemaReturn = z.object({
+  id: z.number(),
   name: z.string(),
   email: z.string(),
   phone: z.string(),
-  created_at: z.date(),
+  createdAt: z.date(),
   client: ClientSchemaWithoutPassword.nullish(),
 });
 
-export const ContactSchemaRequest = CreateContactSchema.omit({
+export const ContactSchemaRequest = CreateContactSchemaReturn.omit({
   id: true,
-  created_at: true,
+  createdAt: true,
 });
 
-export const UpdateContactSchema = CreateContactSchema.omit({
+export const UpdateContactSchema = CreateContactSchemaReturn.omit({
   id: true,
   created_at: true,
   clientId: true,
