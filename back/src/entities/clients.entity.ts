@@ -1,4 +1,3 @@
-import { getRounds, hashSync } from "bcryptjs";
 import {
   Column,
   CreateDateColumn,
@@ -35,11 +34,4 @@ export class Client {
     onDelete: "CASCADE",
   })
   contacts: Contact[];
-
-  hashPassword() {
-    const isEncrypted = getRounds(this.password);
-    if (!isEncrypted) {
-      this.password = hashSync(this.password, 10);
-    }
-  }
 }
