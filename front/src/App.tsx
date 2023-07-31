@@ -1,9 +1,9 @@
-import React from "react";
+import { Router } from "./Routes/routes";
 
 const App = () => {
   return (
     <>
-      <h1>Ola</h1>
+      <Router />
     </>
   );
 };
