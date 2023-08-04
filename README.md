@@ -1,6 +1,5 @@
-# desafio-fullstack
+# Desafio Fullstack - README 
 
-#########################   Desafio Fullstack - README    #####################
 
 ------------------- Funcionalidades Principais -------------------
 
