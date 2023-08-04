@@ -16,12 +16,14 @@ Gerenciamento de Contatos: Os clientes podem criar novos contatos, visualizar os
     git clone git@github.com:HiagoRomaneli/desafio-fullstack.git
     
 2 - Navegue até o diretório Back-End pelo terminal:
+
 3 - Instale as dependências do Node.js executando o seguinte comando:
 
       yarn install
       
 4 - No arquivo .env.example esta descrito como seu arquivo .env deve ser construido, 
 preencha seu arquivo .env com as variáveis de acordo com suas configurações locais:
+
 5 - Rode as migrações executando os seguintes comandos:
 
       yarn typeorm migration:generate /src/migrations/correçao -d /src/data-source.ts
@@ -35,6 +37,7 @@ preencha seu arquivo .env com as variáveis de acordo com suas configurações l
 ------------------- Front-End -------------------
 
 1 - Navegue até o diretório Front-End pelo terminal:
+
 2 - Instale as dependências do Node.js executando o seguinte comando:
 
       yarn install
