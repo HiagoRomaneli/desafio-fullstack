@@ -7,7 +7,7 @@ A aplicação possui as seguintes funcionalidades principais:
 
 Autenticação de Clientes: Os clientes podem se cadastrar e fazer login no sistema para acessar seus contatos.
 
-Gerenciamento de Contatos: Os usuários podem criar novos contatos, visualizar os contatos existentes, atualizar e excluir contatos.
+Gerenciamento de Contatos: Os clientes podem criar novos contatos, visualizar os contatos existentes, atualizar e excluir contatos.
 
 ------------------- Back-End -------------------
 
