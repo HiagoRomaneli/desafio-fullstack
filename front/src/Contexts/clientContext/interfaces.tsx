@@ -15,7 +15,7 @@ export interface IClientContextProvider {
 }
 
 export interface Client {
-  id: string;
+  id: number;
   name: string;
   email: string;
   phone: string;
@@ -30,4 +30,17 @@ export interface Contact {
   email: string;
   phone: string;
   createdAt: string;
+}
+
+export interface ILogin {
+  email: string;
+  password: string;
+}
+
+export interface IRegister {
+  name: string;
+  email: string;
+  password: string;
+  passwordConfirm: string;
+  phone: string;
 }
