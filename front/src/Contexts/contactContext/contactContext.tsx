@@ -4,6 +4,7 @@ import { api } from "../../Services/api";
 import { ClientsContext } from "../clientContext/clientContext";
 import {
   ContactRequest,
+  ContactResponse,
   ContactUpdate,
   IContactsContext,
   IContactsContextProvider,
@@ -22,7 +23,7 @@ export const ContactsProvider: React.FC<IContactsContextProvider> = ({
   const { setLoading, setModal, setClientContacts } =
     useContext(ClientsContext);
 
-  const selectedContact = (contact: any) => {
+  const selectedContact = (contact: ContactResponse) => {
     setModalEdit(true);
     setContactSelected(contact);
   };

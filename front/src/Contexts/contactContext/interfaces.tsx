@@ -7,9 +7,11 @@ export interface IContactsContext {
     clientdId: number
   ) => Promise<void>;
   deleteContact: (clientdId: number) => Promise<void>;
-  contactSelected: any;
-  setContactSelected: any;
-  selectedContact: any;
+  contactSelected: ContactUpdate | undefined;
+  setContactSelected: React.Dispatch<
+    React.SetStateAction<ContactUpdate | undefined>
+  >;
+  selectedContact: (contact: ContactResponse) => void;
 }
 
 export interface IContactsContextProvider {
