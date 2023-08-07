@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const StyledRegisterPage = styled.div`
+  h1 {
+    color: var(--color-primary);
+  }
   display: flex;
   align-items: baseline;
   justify-content: space-between;
