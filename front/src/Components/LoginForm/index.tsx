@@ -2,6 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import * as yup from "yup";
 import { api } from "../../Services/api";
 import {
@@ -40,6 +41,8 @@ export const LoginForm = () => {
       localStorage.setItem("@token", token);
 
       setLoading(false);
+
+      toast.success("Login feito com sucesso");
 
       navigate("dashboard");
     } catch (error) {
