@@ -11,7 +11,7 @@ export const Register = () => {
   return (
     <>
       <StyledRegisterPage>
-        <h1>ola</h1>
+        <h1>Registre-se</h1>
         <StyledButtonTertiary onClick={backPage}>Voltar</StyledButtonTertiary>
       </StyledRegisterPage>
       <RegisterForm />

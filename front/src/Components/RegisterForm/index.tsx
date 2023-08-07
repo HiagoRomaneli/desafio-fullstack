@@ -2,50 +2,27 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import * as yup from "yup";
+import { IRegister } from "../../Contexts/clientContext/interfaces";
 import { api } from "../../Services/api";
 import { StyledButtonPrimary } from "../../Styles/buttons";
 import { StyledForm } from "../../Styles/form";
 import { StyledError, StyledH2 } from "../../Styles/typography";
+import { formSchemaRegister } from "./registerSchema";
 import { StyledDivRegister } from "./style";
 
 export const RegisterForm = () => {
   const navigate = useNavigate();
-  const formSchema = yup.object().shape({
-    name: yup
-      .string()
-      .min(3, "Seu nome deve ter no mínimo 3 caracteres")
-      .required("Nome obrigatório"),
-    email: yup
-      .string()
-      .required("Email orbigatória")
-      .email("Digite um email válido"),
-    password: yup
-      .string()
-      .required("Senha obrigatória")
-      .min(8, "Sua senha deve ter no mínimo 8 digitos")
-      .matches(/(?=.*[A-Za-z])/, "Sua senha deve conter ao menos uma letra")
-      .matches(/(?=.*[0-9])/, "Sua senha deve conter ao menos um número")
-      .matches(
-        /(?=.*[$*&@#])/,
-        "Sua senha deve conter ao menos um caractere especial"
-      ),
-    passwordConfirm: yup
-      .string()
-      .required("Confirmar senha obrigatório")
-      .oneOf([yup.ref("password")], "Senhas não conferem"),
-    phone: yup.string().required("Este campo é obrigatório"),
-  });
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm({
-    resolver: yupResolver(formSchema),
+    resolver: yupResolver(formSchemaRegister),
   });
 
-  const onSubmitForm = async (data: any) => {
+  const onSubmitForm = async (data: IRegister) => {
     try {
       await api.post("/clients", data);
       toast.success("Conta criada com sucesso!");
@@ -77,7 +54,7 @@ export const RegisterForm = () => {
         <label htmlFor="password">Senha</label>
         <input
           type="password"
-          placeholder="Dgite aqui sua senha"
+          placeholder="Digite aqui sua senha"
           {...register("password")}
         />
         {errors.password && (
@@ -93,7 +70,11 @@ export const RegisterForm = () => {
           <StyledError>{errors.passwordConfirm.message}</StyledError>
         )}
         <label htmlFor="contact">Telefone</label>
-        <input type="text" placeholder="Telefone" {...register("phone")} />
+        <input
+          type="text"
+          placeholder="Digite seu numero de Telefone"
+          {...register("phone")}
+        />
         {errors.phone && <StyledError>{errors.phone.message}</StyledError>}
         <StyledButtonPrimary type="submit">Cadastrar</StyledButtonPrimary>
       </StyledForm>

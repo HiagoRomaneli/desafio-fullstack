@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import * as yup from "yup";
+import { ILogin } from "../../Contexts/clientContext/interfaces";
 import { api } from "../../Services/api";
 import {
   StyledButtonPrimary,
@@ -11,26 +11,22 @@ import {
 } from "../../Styles/buttons";
 import { StyledForm } from "../../Styles/form";
 import { StyledError, StyledH2, StyledSpan } from "../../Styles/typography";
+import { formSchemaLogin } from "./loginSchema";
 import { StyledDivLogin } from "./style";
 
 export const LoginForm = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const formSchema = yup.object().shape({
-    email: yup.string().required("Email obrigatório"),
-    password: yup.string().required("Senha obrigatória"),
-  });
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(formSchema),
+    resolver: yupResolver(formSchemaLogin),
   });
 
-  const signIn = async (data: any) => {
+  const signIn = async (data: ILogin) => {
     try {
       const response = await api.post("/login", data);
 
