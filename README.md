@@ -20,6 +20,10 @@ Gerenciamento de Contatos: Os clientes podem criar novos contatos, visualizar os
 3 - Instale as dependências do Node.js executando o seguinte comando:
 
       yarn install
+
+      ou
+      
+      npm install
       
 4 - No arquivo .env.example esta descrito como seu arquivo .env deve ser construido, 
 preencha seu arquivo .env com as variáveis de acordo com suas configurações locais:
@@ -29,10 +33,20 @@ preencha seu arquivo .env com as variáveis de acordo com suas configurações l
       yarn typeorm migration:generate /src/migrations/correçao -d /src/data-source.ts
 
       yarn typeorm migration:run -d src/data-source.ts
+
+      ou
+
+      npm typeorm migration:generate /src/migrations/correçao -d /src/data-source.ts
+
+      npm typeorm migration:run -d src/data-source.ts
       
 6 - Inicie o servidor com o seguinte comando:
 
       yarn dev
+
+      ou
+
+      npm dev
 
 ------------------- Front-End -------------------
 
@@ -41,7 +55,15 @@ preencha seu arquivo .env com as variáveis de acordo com suas configurações l
 2 - Instale as dependências do Node.js executando o seguinte comando:
 
       yarn install
+
+      ou
+
+      npm install
       
 3 - Inicie o servidor com o seguinte comando:
 
       yarn dev
+
+      ou
+
+      npm dev
